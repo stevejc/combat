@@ -3,6 +3,14 @@ Combat::Application.routes.draw do
   devise_for :users
 
   root to: 'home#index'
+  match '/terms_of_service' => 'home#terms_of_service'
+  match '/home' => 'home#index'
+  match '/about' => 'home#about'
+  match '/contact_us' => 'home#contact_us'
+  match '/privacy_policy' => 'home#privacy_policy'
+  match '/faq' => 'home#faq'
+  match '/public_search' => 'home#public_search'
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

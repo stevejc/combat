@@ -1,0 +1,37 @@
+<footer class="row-fluid">
+  <div class="span3" id="connection">
+    <h4>Connect with us on:</h4>
+    <ul>
+      <li>
+        <a href="http://www.facebook.com/Combat2Career" target="_blank">
+          <%= image_tag "icon-facebook-24.png" %>Facebook
+        </a>
+      </li>
+      <li>
+        <a href="http://www.twitter.com/#!/Combat2Career" target="_blank">
+          <%= image_tag "icon-twitter-24.png" %>Twitter
+        </a>
+      </li>
+      <li>
+        <a href="http://www.linkedin.com/groups/Combat2Career-4343796" target="_blank">
+          <%= image_tag "icon-linkedin-24.png" %>LinkedIn
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="span9">
+    <ul class="footer-nav">
+      <li><%= link_to "Home", home_path %></li>
+      <li><%= link_to "Terms of Service", terms_of_service_path %></li>
+      <li><%= link_to "Privacy Policy", privacy_policy_path %></li>
+      <li><%= link_to "About Us", about_path %></li>
+      <li><%= link_to "FAQ's", faq_path %></li>
+      <li><%= link_to "Public Search", public_search_path %></li>
+      <li><%= link_to "Contact Us", contact_us_path %></li>
+    </ul>
+    <p>&copy; C2C, LLC DBA Combat2Career &reg; All rights reserved.</p>
+    <%= image_tag "flag.png" %>
+    <span>Proudly made in the USA</span>
+  </div>
+
+</footer>

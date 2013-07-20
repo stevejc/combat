@@ -1,0 +1,32 @@
+footer {
+
+	#connection {
+	display: inline-block;
+	float: left;
+	border-right: solid 1px black;
+	padding-left: 10px;
+	}
+	
+	ul {
+		list-style: none;
+	}
+	
+	.footer-nav {
+	
+		margin: 10px 0;
+	
+		li {
+			display: inline;
+		}
+
+		li:not(:last-child) {
+			border-right: solid 1px black;
+			padding-right: 5px;
+		}
+		
+	}
+	
+	img {
+		margin: 5px;
+	}
+}
