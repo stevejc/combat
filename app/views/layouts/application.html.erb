@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Combat</title>
+  <meta charset="utf-8">
+  <title>Combat2Careers</title>
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <%= render 'layouts/header' %>	
+  <div class="container">
+  	<%= render 'layouts/error' %>
+  	<%= yield %>
+  	<%= yield :scripts %>
+  </div>
 
 </body>
 </html>
