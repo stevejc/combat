@@ -1,0 +1,17 @@
+<%= form_for(@blog) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :title, "Title *"%>
+  <%= f.text_field :title %>
+  <%= errors_for @blog, :title %>
+  
+  <%= f.label :content, "Article *" %>
+  <%= f.text_area :article, :class => 'span7', :rows => "10" %>
+  <%= errors_for @blog, :article %>
+  
+  
+  <div class="form-actions"> 
+    <%= f.submit "Post Article", class: "btn btn-warning" %>
+    <%= link_to 'Cancel', :back, :class => 'btn' %>
+  </div>
+<% end %>

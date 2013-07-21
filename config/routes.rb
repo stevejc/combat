@@ -1,4 +1,5 @@
 Combat::Application.routes.draw do
+  resources :blogs
   resources :messages
   
   devise_for :users

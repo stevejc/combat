@@ -1,0 +1,6 @@
+<h1>Combat2Career Blog</h1>
+
+<% @blogs.each do |blog| %>
+  <h3><%= link_to blog.title, blog %></h3>
+  <p><%= blog.article %></p>
+<% end %>
