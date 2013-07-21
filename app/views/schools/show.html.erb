@@ -1,0 +1,73 @@
+<h1><%= @school.name %></h1>
+<p><%= @school.city %>, <%= @school.state %></p>
+
+<section id="school-overview">
+  <h4>School Overview</h4>
+  <ul>
+    <li>School Type: <%= @school.school_type %></li>
+    <li>Student Population: <%= @school.population %></li>
+    <li>Setting: <%= @school.setting %></li>
+    <li>Website: <%= link_to @school.url, @school.url %></li>
+  </ul>
+</section>
+
+<section id="vet-tuition-calc">
+  <h4>Veteran Tuition Calculator</h4>
+  
+  <h6>Disclaimers</h6>
+  <ul>
+    <li>All Tuition and fees are calculated based on the post 911 GI Bill.</li>
+    <li>This GI Bill calculator is estimating at the Maxium GI Bill rate available of 100%.</li>
+    <li>This Tuition calculation assumes that your institution is approved for GI Bill funding. You need to verify that this institution is approved for GI Bill funding by searching the weams database.</li>
+    <li>The tuition calculations assumes you are a full time student that is not taking classes exclusively online courses for more information visit the VA's website.</li>
+  </ul>
+</section>
+
+<section id="additional-info">
+  <h3>Quick Stats</h3>
+  <ul>
+    <li>Reading 25th Percentile SAT Score:</li>
+    <li>Writing 25th Percentile SAT Score:</li>
+    <li>Math 25th Percentile SAT Score:</li>
+    <li>Reading 75th Percentile SAT Score:</li>
+    <li>Writing 75th Percentile SAT Score:</li>
+    <li>Math 75th Percentile SAT Score:</li>
+    <li>Will Waive SAT score for Vets: </li>
+  </ul>
+
+  <h3>Services</h3>
+  <ul>
+    <li>Remedial Service: <%= @school.remedial %></li>
+    <li>Academic Counseling Service: <%= @school.counseling %></li>
+    <li>Employment Service: <%= @school.employment %></li>
+    <li>Placement Service: <%= @school.placement %></li>
+    <li>On Campus Daycare: <%= @school.daycare %></li>
+  </ul>
+
+  <h3>Religious or Historical Affiliations</h3>
+  <ul>
+    <li>Historically Black: <%= @school.historically_black %></li>
+    <li>Tribal: <%= @school.tribal %></li>
+    <li>Religious Affliation: <%= @school.religious %></li>
+  </ul>
+
+  <h3>Facilities & Living</h3>
+  <ul>
+    <li>Family Friendly Housing: <%= @school.family_housing %></li>
+    <li>Veteran Only Housing: <%= @school.vet_housing %></li>
+    <li>Doesn't Require First Year Housing: <%= @school.first_year_housing %></li>
+    <li>On Campus Fitness Facility: <%= @school.fitness %></li>
+  </ul>
+
+</section>
+
+<section id="location">
+  <h3>Location</h3>
+  <%= @school.address1 %>
+  <%= @school.address2 %>
+  <%= @school.city %>, <%= @school.state %>  <%= @school.zip %>
+
+</section>
+
+
+

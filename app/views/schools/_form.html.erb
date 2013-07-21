@@ -1,0 +1,86 @@
+<%= form_for(@school) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+<fieldset>
+  <%= f.label :name, "Name *"%>
+  <%= f.text_field :name %>
+  <%= errors_for @school, :name %>
+  
+  <%= f.label :address1, "Address 1" %>
+  <%= f.text_field :address1 %>
+  
+  <%= f.label :address2, "Address 2" %>
+  <%= f.text_field :address2 %>
+  
+  <%= f.label :city, "City (required)" %>
+  <%= f.text_field :city %>
+  <%= errors_for @school, :city %>
+  
+  <%= f.label :state, "State *" %>
+  <%= f.text_field :state %>
+  <%= errors_for @school, :state %>
+  
+  <%= f.label :zip, "Zip *" %>
+  <%= f.text_field :zip %>
+  <%= errors_for @school, :zip %>
+  
+  <%= f.label :url, "Website" %>
+  <%= f.url_field :url %>
+  
+  </fieldset>
+  
+  <fieldset>
+    <%= f.label :school_type, "Type" %>
+    <%= f.select :school_type, school_institution_types, :include_blank => true %>
+  
+    <%= f.label :population, "Student population" %>
+    <%= f.text_field :population %>
+  
+    <%= f.label :setting %>
+    <%= f.select :setting, school_settings, :include_blank => true %>
+  </fieldset>
+  
+  <fieldset>
+    <%= f.label :remedial, "Remedial services" %>
+    <%= f.select :remedial, yes_no %>
+  
+    <%= f.label :employment, "Employment services" %>
+    <%= f.select :employment, yes_no %>
+      
+    <%= f.label :placement, "Placement services" %>
+    <%= f.select :placement, yes_no %>
+    
+    <%= f.label :daycare, "On campus daycare" %>
+    <%= f.select :daycare, yes_no %>
+  </fieldset>
+  
+  <fieldset>
+    <%= f.label :historically_black %>
+    <%= f.select :remedial, yes_no %>
+  
+    <%= f.label :tribal %>
+    <%= f.select :tribal, yes_no %>
+      
+    <%= f.label :religious, "Religious affiliation" %>
+    <%= f.select :religious, yes_no %>
+  </fieldset>
+  
+  <fieldset>
+    <%= f.label :family_housing, "Family Friendly Housing" %>
+    <%= f.select :family_housing, yes_no %>
+  
+    <%= f.label :vet_housing, "Veteran Only Housing" %>
+    <%= f.select :vet_housing, yes_no %>
+      
+    <%= f.label :first_year_housing, "Doesn't require first year housing" %>
+    <%= f.select :first_year_housing, yes_no %>
+    
+    <%= f.label :fitness, "On campus fitness facility" %>
+    <%= f.select :fitness, yes_no %>
+  </fieldset>
+  
+  
+  <div class="form-actions"> 
+    <%= f.submit "Save School", class: "btn btn-warning" %>
+    <%= link_to 'Cancel', :back, :class => 'btn' %>
+  </div>
+<% end %>

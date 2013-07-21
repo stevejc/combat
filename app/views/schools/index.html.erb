@@ -1,0 +1,6 @@
+<h1>School Search</h1>
+
+<% @schools.each do |school| %>
+  <%= link_to school.name, school %><br>
+  <%= school.city %>, <%= school.state %>
+<% end %>
