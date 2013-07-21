@@ -1,0 +1,21 @@
+<%= form_for(@message) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :name, "Name *"%>
+  <%= f.text_field :name %>
+  <%= errors_for @message, :name %>
+  
+  <%= f.label :email, "Email *" %>
+  <%= f.email_field :email %>
+  <%= errors_for @message, :email %>
+  
+  <%= f.label :content, "Message *" %>
+  <%= f.text_area :content, :class => 'span7', :rows => "10" %>
+  <%= errors_for @message, :content %>
+  
+  
+  <div class="form-actions"> 
+    <%= f.submit "Send Message", class: "btn btn-warning" %>
+    <%= link_to 'Cancel', :back, :class => 'btn' %>
+  </div>
+<% end %>

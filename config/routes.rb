@@ -1,4 +1,5 @@
 Combat::Application.routes.draw do
+  resources :messages
   
   devise_for :users
 
@@ -6,7 +7,6 @@ Combat::Application.routes.draw do
   match '/terms_of_service' => 'home#terms_of_service'
   match '/home' => 'home#index'
   match '/about' => 'home#about'
-  match '/contact_us' => 'home#contact_us'
   match '/privacy_policy' => 'home#privacy_policy'
   match '/faq' => 'home#faq'
   match '/public_search' => 'home#public_search'
