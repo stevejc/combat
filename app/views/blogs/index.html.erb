@@ -2,5 +2,5 @@
 
 <% @blogs.each do |blog| %>
   <h3><%= link_to blog.title, blog %></h3>
-  <p><%= blog.article %></p>
+  <p><%= raw(truncate(blog.article, length: 285, separator: ' ', omission: (link_to ' ... Continue reading'))) %></p>
 <% end %>
