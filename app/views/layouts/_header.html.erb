@@ -10,9 +10,20 @@
       
       <div class="nav-collapse collapse">
         <ul class="nav">
-        <li><%= link_to "School Search", root_path %></li> 		
-        <li><%= link_to "Job Listings", root_path %></li> 			    
-        <li><%= link_to "About Us", root_path %></li>
+          <li><%= link_to "School Search", root_path %></li> 		
+          <li><%= link_to "Job Listings", root_path %></li> 
+        
+          <li id="fat-menu" class="dropdown">
+    			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          About Us <b class="caret"></b></a>
+  			    <ul class="dropdown-menu">
+  			    <li><%= link_to "Blog", root_path %></li>
+              <li><%= link_to "Veterans", about_veterans_path %></li>
+              <li><%= link_to "Employers", about_employers_path %></li> 
+              <li><%= link_to "Educators", about_educators_path %></li> 
+              <li><%= link_to "Supporters", about_supporters_path %></li>			    
+  			    </ul>
+  		    </li>
       	</ul>	
       	<ul class="nav pull-right">
       	  <% if user_signed_in? %>

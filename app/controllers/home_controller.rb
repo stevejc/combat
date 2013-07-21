@@ -21,4 +21,19 @@ class HomeController < ApplicationController
   def public_search
   end
   
+  def veterans
+  end
+  
+  def educators
+  end
+  
+  def employers
+  end
+  
+  def supporters
+  end
+  
+  def blog
+  end
+  
 end
