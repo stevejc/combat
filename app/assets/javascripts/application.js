@@ -14,3 +14,35 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+jQuery(function($) {
+	$("#location h3").append('<div id="map"></div>')
+	$(".static_map").remove();
+	
+	var map;
+	var center;
+	
+	function initialize() {
+	  var mapOptions = {
+	    center: new google.maps.LatLng(addressLat, addressLong),
+	    zoom: 8,
+	    mapTypeId: google.maps.MapTypeId.ROADMAP
+	  };
+	  map = new google.maps.Map(document.getElementById("map"),
+	      mapOptions);
+	  var marker = new google.maps.Marker({
+	      position: new google.maps.LatLng(addressLat, addressLong),
+	      map: map,
+	  });
+	}
+	
+	initialize();
+	google.maps.event.addDomListener(map, 'idle', function(){
+		center = map.getCenter();
+	});
+	
+	$(window).resize(function(){
+		map.setCenter(center);
+	});
+	
+})

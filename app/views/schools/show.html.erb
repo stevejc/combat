@@ -63,9 +63,15 @@
 
 <section id="location">
   <h3>Location</h3>
-  <%= @school.address1 %>
-  <%= @school.address2 %>
-  <%= @school.city %>, <%= @school.state %>  <%= @school.zip %>
+<%= javascript_tag do %>
+  window.addressLat = "<%=j @school.latitude.to_s %>";
+  window.addressLong = "<%=j @school.longitude.to_s %>"
+<% end %>
+  
+  <p class="static_map"><img src=" http://maps.googleapis.com/maps/api/staticmap?size=400x300&sensor=false&markers=<%= format_address(@school, true) %>" alt="format_address(@school)" ></p>
+  
+  <%= format_address(@school) %>
+
 
 </section>
 

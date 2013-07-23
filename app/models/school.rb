@@ -33,5 +33,18 @@
 class School < ActiveRecord::Base
   attr_accessible :address1, :address2, :city, :daycare, :employment, :family_housing, :first_year_housing, :fitness, :historically_black, :name, :placement, :population, :religious, :remedial, :school_type, :setting, :state, :tribal, :url, :vet_housing, :yellow, :zip
   
+  geocoded_by :address
+  after_validation :geocode
   validates :name, :city, :state, presence: true
+  
+  def address
+    output = ""
+    output << address1 + ", "
+    if address2?
+      output << address2 + ", "
+    end
+    output << city + ", "
+    output << state + " "
+    output << zip
+  end
 end

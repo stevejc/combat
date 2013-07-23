@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130721171027) do
+ActiveRecord::Schema.define(:version => 20130723002600) do
 
   create_table "blogs", :force => true do |t|
     t.string   "title"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(:version => 20130721171027) do
     t.string   "first_year_housing"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.float    "longitude"
+    t.float    "latitude"
   end
 
   create_table "users", :force => true do |t|

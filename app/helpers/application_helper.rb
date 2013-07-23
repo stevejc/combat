@@ -29,4 +29,22 @@ module ApplicationHelper
   def yes_no
     ["", "Yes", "No", "Unknown"]
   end
+  
+  def format_address(address, url=false)
+    output = ""
+    output << address.address1 + ", "
+    if address.address2?
+      output << address.address2 + ", "
+    end
+    output << address.city + ", "
+    output << address.state + " "
+    output << address.zip
+    if url == true
+      output = output.gsub(" ", "+")
+    else
+      output
+    end
+
+  end
+ 
 end
