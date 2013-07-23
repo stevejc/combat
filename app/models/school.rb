@@ -47,4 +47,5 @@ class School < ActiveRecord::Base
     output << state + " "
     output << zip
   end
+  
 end

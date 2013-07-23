@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 gem 'devise'
 gem 'geocoder'
 gem 'pg'
+gem 'ransack'
 gem 'will_paginate'
 
 group :development, :test do

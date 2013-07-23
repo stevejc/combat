@@ -1,14 +1,43 @@
-<h1>School Search</h1>
-<% if user_signed_in? && current_user.admin? %>
-  <%= link_to 'Add New School', new_school_path, :class => 'btn' %><br>
-<% end %>
-<ul>
-<% @schools.each do |school| %>
-  <li>
-  <%= link_to school.name, school %><br>
-  <%= school.city %>, <%= school.state %>
-  </li>
-<% end %>
-</ul>
+<div class="clearfix">
+  <h1>School Search</h1>
+  <% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'Add New School', new_school_path, :class => 'btn' %><br>
+  <% end %>
+  <br>
+  <div id="school-search">
+    <%= search_form_for @search do |f| %>
+      <fieldset>
+        <%= f.label :name_cont, "School Name Contains" %>
+        <%= f.text_field :name_cont %>
+        <%= label_tag :zip %>
+         <%= text_field_tag :zip, params[:zip], class: "input-mini" %>
+        <%= label_tag :within %>
+        <%= text_field_tag :within, params[:within], class: "input-mini" %> miles
+        <%= f.label :setting_eq %>
+        <%= f.select :setting_eq, school_settings, :include_blank => true %>
+        <%= f.label :school_type_eq, "Type" %>
+        <%= f.select :school_type_eq, school_institution_types, :include_blank => true %><br>
+        <%= f.check_box :yellow_true %>
+        <%= f.label :yellow_true, "Yellow Ribbon Participant" %>
+      </fieldset>
+      <div class="form-actions"> 
+        <%= f.submit "Search", class: "btn btn-warning" %>
+      </div>
+    <% end %>
+  </div>
+    <h3>Search Results</h3>
+    <% if @schools.exists? %>
+      <ul>
+      <% @schools.each do |school| %>
+        <li>
+        <%= link_to school.name, school %><br>
+        <%= school.city %>, <%= school.state %>
+        </li>
+      <% end %>
+      </ul>
 
-<%= will_paginate @schools %>
+      <%= will_paginate @schools %>
+    <% else %>
+      <p>Unfortunately no schools are a match for your search parameters.</p>
+    <% end %>
+</div>

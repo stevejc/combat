@@ -3,7 +3,13 @@ class SchoolsController < ApplicationController
   before_filter :admin_only, except: [:index, :show]
   
   def index
-    @schools = School.order('name asc').paginate(:per_page => 2, :page => params[:page])
+    if (params[:zip] && params[:within]) && (!params[:zip].empty? && !params[:within].empty?)
+      @search = School.near(params[:zip], params[:within]).search(params[:q])
+    else
+      @search = School.search(params[:q])
+    end
+    @schools = @search.result.order('name asc').paginate(:per_page => 2, :page => params[:page])
+
   end
   
   def new
