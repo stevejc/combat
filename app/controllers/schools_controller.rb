@@ -1,4 +1,6 @@
 class SchoolsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :admin_only, except: [:index, :show]
   
   def index
     @schools = School.all
@@ -32,5 +34,11 @@ class SchoolsController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  private
+  
+  def admin_only
+    redirect_to root_path, alert: "Whoops, you do not have access to the requested page." if !current_user.admin?
   end
 end

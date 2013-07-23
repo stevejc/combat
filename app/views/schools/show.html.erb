@@ -1,4 +1,7 @@
 <h1><%= @school.name %></h1>
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to 'Edit', edit_school_path(@school), :class => 'btn' %>
+<% end %>
 <p><%= @school.city %>, <%= @school.state %></p>
 
 <section id="school-overview">
