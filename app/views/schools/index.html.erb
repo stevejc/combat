@@ -2,7 +2,13 @@
 <% if user_signed_in? && current_user.admin? %>
   <%= link_to 'Add New School', new_school_path, :class => 'btn' %><br>
 <% end %>
+<ul>
 <% @schools.each do |school| %>
+  <li>
   <%= link_to school.name, school %><br>
   <%= school.city %>, <%= school.state %>
+  </li>
 <% end %>
+</ul>
+
+<%= will_paginate @schools %>

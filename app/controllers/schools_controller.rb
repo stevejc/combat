@@ -3,7 +3,7 @@ class SchoolsController < ApplicationController
   before_filter :admin_only, except: [:index, :show]
   
   def index
-    @schools = School.all
+    @schools = School.order('name asc').paginate(:per_page => 2, :page => params[:page])
   end
   
   def new
