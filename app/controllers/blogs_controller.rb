@@ -1,4 +1,7 @@
 class BlogsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :admin_only, except: [:index, :show]
+  
   def index
     @blogs = Blog.order("created_at asc")
   end
@@ -11,7 +14,7 @@ class BlogsController < ApplicationController
     @blog = Blog.new(params[:blog])
     
     if @blog.save
-      redirect_to root_path, notice: "Your blog article has been saved."
+      redirect_to blogs_path, notice: "Your blog article has been saved."
     else
       render :new
     end
@@ -33,4 +36,11 @@ class BlogsController < ApplicationController
       render :edit 
     end
   end
+  
+  private
+  
+  def admin_only
+    redirect_to root_path, alert: "Whoops, you do not have access to the requested page." if !current_user.admin?
+  end
+  
 end

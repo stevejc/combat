@@ -1,4 +1,7 @@
 <h1>Combat2Career Blog</h1>
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to 'Add New Blog Post', new_blog_path, :class => 'btn' %><br>
+<% end %>
 
 <% @blogs.each do |blog| %>
   <h3><%= link_to blog.title, blog %></h3>
