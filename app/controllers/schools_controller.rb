@@ -1,6 +1,6 @@
 class SchoolsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show]
-  before_filter :admin_only, except: [:index, :show]
+  before_filter :authenticate_user!, except: [:index, :show, :compare]
+  before_filter :admin_only, except: [:index, :show, :compare]
   
   def index
     if (params[:zip] && params[:within]) && (!params[:zip].empty? && !params[:within].empty?)
@@ -9,7 +9,10 @@ class SchoolsController < ApplicationController
       @search = School.search(params[:q])
     end
     @schools = @search.result.order('name asc').paginate(:per_page => 2, :page => params[:page])
-
+  end
+  
+  def compare
+    @schools = School.find(params[:school_ids])
   end
   
   def new

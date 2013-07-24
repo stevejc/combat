@@ -78,6 +78,38 @@
     <%= f.select :fitness, yes_no %>
   </fieldset>
   
+  <fieldset>
+  <%= f.label :gi_bill_accredited, "GI Bill Accredited" %>
+  <%= f.select :gi_bill_accredited, yes_no %>
+  
+  <%= f.label :yellow, "Yellow Ribbon Participant" %>
+  <%= f.select :yellow, yes_no %>
+  
+  <%= f.label :vet_affairs, "Veteran Affairs Office" %>
+  <%= f.select :vet_affairs, yes_no %>
+  
+  <%= f.label :vet_tuition_waived, "Veteran Tuition Waived" %>
+  <%= f.select :vet_tuition_waived, yes_no %>
+  
+  <%= f.label :vet_scholarships, "Veteran Scholarships" %>
+  <%= f.select :vet_scholarships, yes_no %>
+  
+  <%= f.label :sat_waived, "SAT Waived for Veterans" %>
+  <%= f.select :sat_waived, yes_no %>
+  
+  <%= f.label :vet_clubhouse, "Veteran Clubhouse" %>
+  <%= f.select :vet_clubhouse, yes_no %>
+  
+  <%= f.label :mentor, "Mentor Programs" %>
+  <%= f.select :mentor, yes_no %>
+  
+  <%= f.label :student_vets_america, "Student Veterans of America" %>
+  <%= f.select :student_vets_america, yes_no %>
+  
+  <%= f.label :vet_orientation, "Veteran Orientation" %>
+  <%= f.select :vet_orientation, yes_no %>
+  </fieldset>
+  
   
   <div class="form-actions"> 
     <%= f.submit "Save School", class: "btn btn-warning" %>

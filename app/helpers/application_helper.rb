@@ -46,5 +46,16 @@ module ApplicationHelper
     end
 
   end
+  
+  def offers_benefits(benefit)
+    case benefit
+    when "Yes"
+      image_tag 'does.png', class: 'service-status'
+    when "No"
+      image_tag 'doesnot.png', class: 'service-status'
+    else
+      image_tag 'unknown.png', class: 'service-status'
+    end
+  end
  
 end

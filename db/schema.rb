@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130723002600) do
+ActiveRecord::Schema.define(:version => 20130724153242) do
 
   create_table "blogs", :force => true do |t|
     t.string   "title"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20130723002600) do
     t.string   "zip"
     t.string   "setting"
     t.string   "school_type"
-    t.boolean  "yellow"
+    t.string   "yellow",               :default => "unknown"
     t.integer  "population"
     t.string   "url"
     t.string   "remedial"
@@ -54,10 +54,19 @@ ActiveRecord::Schema.define(:version => 20130723002600) do
     t.string   "family_housing"
     t.string   "vet_housing"
     t.string   "first_year_housing"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
     t.float    "longitude"
     t.float    "latitude"
+    t.string   "gi_bill_accredited",   :default => "unknown"
+    t.string   "vet_affairs",          :default => "unknown"
+    t.string   "vet_tuition_waived",   :default => "unknown"
+    t.string   "vet_scholarships",     :default => "unknown"
+    t.string   "sat_waived",           :default => "unknown"
+    t.string   "vet_clubhouse",        :default => "unknown"
+    t.string   "mentor",               :default => "unknown"
+    t.string   "student_vets_america", :default => "unknown"
+    t.string   "vet_orientation",      :default => "unknown"
   end
 
   create_table "users", :force => true do |t|

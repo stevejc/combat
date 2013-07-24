@@ -16,6 +16,7 @@ Combat::Application.routes.draw do
   match '/privacy_policy' => 'home#privacy_policy'
   match '/faq' => 'home#faq'
   match '/public_search' => 'home#public_search'
+  match 'school/compare' => 'schools#compare', :as => "compare"
   
   
   # The priority is based upon order of creation:

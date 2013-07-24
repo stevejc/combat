@@ -1,0 +1,113 @@
+<h3>Search Results</h3>
+
+<table class="table">
+<tr>
+  <td>School</td>
+  <% @schools.each do |school| %>
+    <td><%= school.name %></td>
+  <% end %>
+</tr>
+<tr>
+  <td>Location</td>
+  <% @schools.each do |school| %>
+    <td><%= school.city %>, <%= school.state %></td>
+  <% end %>
+</tr>
+<tr>
+  <td>Type</td>
+  <% @schools.each do |school| %>
+    <td><%= school.school_type %></td>
+  <% end %>
+</tr>
+<tr>
+  <td>Population</td>
+  <% @schools.each do |school| %>
+    <td><%= school.population %></td>
+  <% end %>
+</tr>
+<tr>
+  <td>Setting</td>
+  <% @schools.each do |school| %>
+    <td><%= school.setting %></td>
+  <% end %>
+</tr>
+<tr>
+<td><b>Veteran Services:</b></td>
+<% @schools.each do |school| %>
+  <td></td>
+<% end %>
+</tr>
+<tr>
+  <td>GI Bill Accredited</td>
+  <% @schools.each do |school| %>
+    <td><%= offers_benefits(school.gi_bill_accredited) %></td>
+  <% end %>
+</tr>
+<tr>
+  <td>Yellow Ribbon Participant</td>
+  <% @schools.each do |school| %>
+    <td><%= offers_benefits(school.yellow) %></td>
+  <% end %>
+</tr>
+<tr>
+  <td>Veteran Affairs Office</td>
+  <% @schools.each do |school| %>
+    <td><%= offers_benefits(school.vet_affairs) %></td>
+  <% end %>
+</tr>
+<tr>
+  <td>Scholarship for Veterans</td>
+  <% @schools.each do |school| %>
+    <td><%= offers_benefits(school.vet_scholarships) %></td>
+  <% end %>
+</tr>
+<tr>
+  <td>SAT Waived for Veterans</td>
+  <% @schools.each do |school| %>
+    <td><%= offers_benefits(school.sat_waived) %></td>
+  <% end %>
+</tr>
+<tr>
+  <td>Veteran Clubhouse</td>
+  <% @schools.each do |school| %>
+    <td><%= offers_benefits(school.vet_clubhouse) %></td>
+  <% end %>
+</tr>
+<tr>
+  <td>Mentor Programs</td>
+  <% @schools.each do |school| %>
+    <td><%= offers_benefits(school.mentor) %></td>
+  <% end %>
+</tr>
+<tr>
+  <td>Student Veterans of America</td>
+  <% @schools.each do |school| %>
+    <td><%= offers_benefits(school.student_vets_america) %></td>
+  <% end %>
+</tr>
+<tr>
+  <td>Veteran Orientation</td>
+  <% @schools.each do |school| %>
+    <td><%= offers_benefits(school.vet_orientation) %></td>
+  <% end %>
+</tr>
+</table>
+<p>
+<%= image_tag "does.png", class: "service-status" %>
+Yes, the school does offer this veteran benefit.
+</p>
+<p>
+<%= image_tag "doesnot.png", class: "service-status" %>
+No, the school does not offer this veteran benefit.
+</p>
+<p>
+<%= image_tag "unknown.png", class: "service-status" %>
+Not reported, unknown if the school offers this benefit.
+</p>
+
+
+
+
+
+
+
