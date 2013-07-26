@@ -11,6 +11,11 @@ class SchoolsController < ApplicationController
     @schools = @search.result.order('name asc').paginate(:per_page => 2, :page => params[:page])
   end
   
+  def import
+    School.import(params[:file])
+    redirect_to schools_path, notice: "Your file was imported."
+  end
+  
   def compare
     @schools = School.find(params[:school_ids])
   end

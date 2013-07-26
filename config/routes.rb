@@ -1,7 +1,9 @@
 Combat::Application.routes.draw do
   resources :blogs
   resources :messages
-  resources :schools
+  resources :schools do
+    collection { post :import }
+  end
   
   devise_for :users
 

@@ -44,4 +44,13 @@
     <% else %>
       <p>Unfortunately no schools are a match for your search parameters.</p>
     <% end %>
+    <% if user_signed_in? && current_user.admin? %>
+      <h3>Import Schools</h3>
+      <%= form_tag import_schools_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import" %>
+      <% end %>
+    <% end %>
 </div>
+
+      

@@ -59,4 +59,10 @@ class School < ActiveRecord::Base
     output << zip
   end
   
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      School.create! row.to_hash
+    end
+  end
+  
 end
