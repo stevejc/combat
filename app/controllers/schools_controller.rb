@@ -3,6 +3,7 @@ class SchoolsController < ApplicationController
   before_filter :admin_only, except: [:index, :show, :compare]
   
   def index
+    session[:school_ids] ||= []
     if (params[:zip] && params[:within]) && (!params[:zip].empty? && !params[:within].empty?)
       @search = School.near(params[:zip], params[:within]).search(params[:q])
     else
