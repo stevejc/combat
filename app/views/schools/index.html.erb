@@ -27,6 +27,7 @@
   </div>
     <h3>Search Results</h3>
     <% if @schools.exists? %>
+      <%= session %>
       <div id="schools"><%= render 'schools' %></div>
     <% else %>
       <p>Unfortunately no schools are a match for your search parameters.</p>
