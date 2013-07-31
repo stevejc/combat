@@ -1,0 +1,15 @@
+<%= form_tag compare_path, :method => 'get' do %>
+  <%= submit_tag "Compare", class: "btn" %> 
+  <ul>
+    <% @schools.each do |school| %>
+      <li>
+
+      <%= check_box_tag 'school_ids[]', school.id, session[:school_ids].include?(school.id.to_s) ? true : false  %>
+      <%= link_to school.name, school %><br>
+      <%= school.city %>, <%= school.state %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= will_paginate @schools %>

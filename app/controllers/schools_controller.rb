@@ -16,8 +16,22 @@ class SchoolsController < ApplicationController
     redirect_to schools_path, notice: "Your file was imported."
   end
   
+  def update_session
+    session[:school_ids] ||= []
+    if params[:checked] == "true"
+      session[:school_ids] << params[:school_id]
+    else
+      session[:school_ids].delete(params[:school_id])
+    end
+  end
+  
   def compare
-    @schools = School.find(params[:school_ids])
+    @schools = School.find(session[:school_ids])
+  end
+  
+  def remove_school
+    session[:school_ids].delete(params[:school_id])
+    redirect_to compare_path
   end
   
   def new

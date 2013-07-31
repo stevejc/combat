@@ -19,6 +19,8 @@ Combat::Application.routes.draw do
   match '/faq' => 'home#faq'
   match '/public_search' => 'home#public_search'
   match 'school/compare' => 'schools#compare', :as => "compare"
+  match 'update_session' => 'schools#update_session'
+  match 'remove_school' => 'schools#remove_school'
   
   
   # The priority is based upon order of creation:

@@ -27,20 +27,8 @@
   </div>
     <h3>Search Results</h3>
     <% if @schools.exists? %>
-      <%= form_tag compare_path, :method => 'get' do %>
-        <%= submit_tag "Compare" %> 
-        <ul>
-          <% @schools.each do |school| %>
-            <li>
-            <%= check_box_tag 'school_ids[]', school.id  %>
-            <%= link_to school.name, school %><br>
-            <%= school.city %>, <%= school.state %>
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
+      <div id="schools"><%= render 'schools' %></div>
 
-      <%= will_paginate @schools %>
     <% else %>
       <p>Unfortunately no schools are a match for your search parameters.</p>
     <% end %>

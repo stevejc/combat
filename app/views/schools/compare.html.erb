@@ -4,7 +4,8 @@
 <tr>
   <td>School</td>
   <% @schools.each do |school| %>
-    <td><%= school.name %></td>
+    <td><%= school.name %>  
+    <%= link_to (content_tag(:i, "", :class=>"icon-remove")), remove_school_path(:school_id => school.id), title: 'Remove from comparison!', rel: 'tooltip', class: "remove-school" %></td>
   <% end %>
 </tr>
 <tr>
