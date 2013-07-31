@@ -19,6 +19,9 @@ class SchoolsController < ApplicationController
   
   def update_session
     session[:school_ids] ||= []
+    session[:checked] = params[:checked]
+    session[:my_school] = params[:school_id]
+    session[:hi] = "hi mom"
     if params[:checked] == "true"
       session[:school_ids] << params[:school_id]
     else
