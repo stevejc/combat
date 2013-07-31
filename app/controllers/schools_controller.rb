@@ -1,6 +1,6 @@
 class SchoolsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show, :compare]
-  before_filter :admin_only, except: [:index, :show, :compare]
+  before_filter :authenticate_user!, except: [:index, :show, :compare, :remove_school, :update_session]
+  before_filter :admin_only, except: [:index, :show, :compare, :remove_school, :update_session]
   
   def index
     session[:school_ids] ||= []
@@ -27,7 +27,9 @@ class SchoolsController < ApplicationController
   end
   
   def compare
-    @schools = School.find(session[:school_ids])
+    session[:school_ids] ||= []
+    params[:school_ids] ||= []
+    @schools = School.find(session[:school_ids] | params[:school_ids])
   end
   
   def remove_school
