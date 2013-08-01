@@ -27,6 +27,8 @@ class SchoolsController < ApplicationController
     else
       session[:school_ids].delete(params[:school_id])
     end
+    
+    redirect_to schools_path
   end
   
   def compare
