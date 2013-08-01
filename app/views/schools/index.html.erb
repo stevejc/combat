@@ -2,6 +2,7 @@
   <h1>School Search</h1>
   <% if user_signed_in? && current_user.admin? %>
     <%= link_to 'Add New School', new_school_path, :class => 'btn' %><br>
+    <%= link_to "Download", schools_path(format: "csv"), :class => 'btn' %> 
   <% end %>
   <br>
   <div id="school-search">

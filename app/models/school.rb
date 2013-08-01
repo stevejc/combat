@@ -62,7 +62,18 @@ class School < ActiveRecord::Base
   
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
-      School.create! row.to_hash
+      school = find_by_id(row["id"]) || new
+      school.attributes = row.to_hash.slice(*accessible_attributes)
+      school.save!
+    end
+  end
+  
+  def self.to_csv
+    CSV.generate do |csv|
+      csv<< column_names
+      all.each do |school|
+        csv << school.attributes.values_at(*column_names)
+      end
     end
   end
   

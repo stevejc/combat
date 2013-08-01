@@ -10,6 +10,12 @@ class SchoolsController < ApplicationController
       @search = School.search(params[:q])
     end
     @schools = @search.result.order('name asc').paginate(:per_page => 2, :page => params[:page])
+    @schools_export = @search.result.order('name asc')
+    
+    respond_to do |format|
+      format.html
+      format.csv { send_data @schools_export.to_csv }
+    end
   end
   
   def import
