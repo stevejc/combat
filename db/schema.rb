@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724153242) do
+ActiveRecord::Schema.define(:version => 20130801160409) do
 
   create_table "blogs", :force => true do |t|
     t.string   "title"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20130724153242) do
     t.string   "mentor",               :default => "unknown"
     t.string   "student_vets_america", :default => "unknown"
     t.string   "vet_orientation",      :default => "unknown"
+    t.string   "iped"
   end
 
   create_table "users", :force => true do |t|

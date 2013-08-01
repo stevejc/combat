@@ -39,10 +39,11 @@
 #  mentor               :string(255)      default("unknown")
 #  student_vets_america :string(255)      default("unknown")
 #  vet_orientation      :string(255)      default("unknown")
+#  iped                 :string(255)
 #
 
 class School < ActiveRecord::Base
-  attr_accessible :address1, :address2, :city, :daycare, :employment, :family_housing, :first_year_housing, :fitness, :historically_black, :name, :placement, :population, :religious, :remedial, :school_type, :setting, :state, :tribal, :url, :vet_housing, :yellow, :zip, :gi_bill_accredited, :vet_affairs, :vet_tuition_waived, :vet_scholarships, :sat_waived, :vet_clubhouse, :mentor, :student_vets_america, :vet_orientation
+  attr_accessible :address1, :address2, :city, :daycare, :employment, :family_housing, :first_year_housing, :fitness, :historically_black, :iped, :name, :placement, :population, :religious, :remedial, :school_type, :setting, :state, :tribal, :url, :vet_housing, :yellow, :zip, :gi_bill_accredited, :vet_affairs, :vet_tuition_waived, :vet_scholarships, :sat_waived, :vet_clubhouse, :mentor, :student_vets_america, :vet_orientation
   
   geocoded_by :address
   after_validation :geocode
