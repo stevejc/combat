@@ -10,6 +10,8 @@ ruby "1.9.3"
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'devise'
 gem 'geocoder'
+gem 'omniauth-twitter'
+gem 'omniauth-linkedin'
 gem 'pg'
 gem 'ransack'
 gem 'will_paginate'
@@ -18,6 +20,7 @@ group :development, :test do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'foreman'
   gem 'meta_request'
   gem 'rspec-rails'
 end

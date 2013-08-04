@@ -1,11 +1,13 @@
 Combat::Application.routes.draw do
+  resources :authentications
   resources :blogs
   resources :messages
   resources :schools do
     collection { post :import }
   end
   
-  devise_for :users
+ 
+  devise_for :users, controllers: {omniauth_callbacks: "authentications", registrations: "registrations"}
 
   root to: 'home#index'
   match '/terms_of_service' => 'home#terms_of_service'
